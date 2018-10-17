@@ -1,0 +1,28 @@
+{
+	"manifest_version": 2,
+	"update_url": "https://clients2.google.com/service/update2/crx",
+	"name": "Публикатор новостей",
+	"version": "2", 
+	"description": "show current table on web", 
+	"permissions": ["http://*/","https://*/","management", "storage", "tabs", "webRequest", "webRequestBlocking","proxy", "cookies", "clipboardRead", "contextMenus", "clipboardWrite"],	
+	"icons": {
+		"128": "icons/icon_128.png",
+		"48": "icons/icon_48.png",
+		"16": "icons/icon_16.png"
+	},
+ "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_title": "Inviter",
+    "default_popup": "popup.html"
+  },		
+   "background": {
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "jquery-2.2.2.min.js", "main.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_start"
+   } ]
+
+}
